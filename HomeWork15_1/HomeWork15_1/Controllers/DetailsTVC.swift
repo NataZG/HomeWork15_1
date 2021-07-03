@@ -9,19 +9,13 @@ import UIKit
 
 class DetailsTVC: UITableViewController {
     
-    let names = ["Harry","Ross",
-                "Bruce","Cook",
-                "Carolyn","Morgan",
-                "Albert","Walker",
-                "Randy","Reed"]
+    let sections = ["Harry","Ross",
+                   "Bruce","Cook",
+                   "Carolyn","Morgan",
+                   "Albert","Walker",
+                   "Randy","Reed"]
     
-    let surnames = ["Ruth","Jackson",
-                    "Debra","Allen",
-                    "Gerald","Harris",
-                    "Raymond","Carter",
-                    "Jacqueline","Torres"]
-    
-    let emails = ["qmacro@comcast.net",
+    let items = ["qmacro@comcast.net",
                  "dmath@yahoo.ca",
                  "smallpaul@yahoo.ca",
                  "vganesh@msn.com",
@@ -31,17 +25,6 @@ class DetailsTVC: UITableViewController {
                  "mhanoh@sbcglobal.net",
                  "matty@sbcglobal.net",
                  "maradine@icloud.com"]
-    
-    let phones = ["501-614-9480",
-                 "904-392-4235",
-                 "415-377-7401",
-                 "909-758-7274",
-                 "623-418-0474",
-                 "216-283-5494",
-                 "717-471-4756",
-                 "240-263-1720",
-                 "601-697-2106",
-                 "281-906-3421"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,25 +38,24 @@ class DetailsTVC: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sections[section]
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return self.sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return items.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = items[indexPath.section]
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
