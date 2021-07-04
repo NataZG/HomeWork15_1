@@ -58,6 +58,7 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        func personFromStruct(){
         for person in personsArray {
            var person = person
             person.name = names.randomElement()!
@@ -66,12 +67,9 @@ class DetailsVC: UIViewController {
             person.phone = phones.randomElement()!
             personsArray.append(person)
         }
-        
-        
             
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -83,4 +81,5 @@ class DetailsVC: UIViewController {
     }
     */
 
+}
 }
